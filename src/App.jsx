@@ -6,43 +6,81 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import ScrollToTop from './components/ScrollToTop';
-// Add page imports here
+import SimpleProtectedRoute from '@/components/SimpleProtectedRoute';
+import PublicLayout from '@/components/PublicLayout';
+// Public pages
+import Home from '@/pages/Home';
+import Team from '@/pages/Team';
+import Gallery from '@/pages/Gallery';
+import Outreach from '@/pages/Outreach';
+import Stats from '@/pages/Stats';
+import Contact from '@/pages/Contact';
+// Admin
+import AdminLayout from '@/components/AdminLayout';
+import AdminDashboard from '@/pages/admin/AdminDashboard';
+import ManageTeam from '@/pages/admin/ManageTeam';
+import ManageTimeline from '@/pages/admin/ManageTimeline';
+import ManageGallery from '@/pages/admin/ManageGallery';
+import ManageStats from '@/pages/admin/ManageStats';
+import ManageSponsors from '@/pages/admin/ManageSponsors';
+import ManageOutreach from '@/pages/admin/ManageOutreach';
+import AdminSubmissions from '@/pages/admin/AdminSubmissions';
+import ManageSettings from '@/pages/admin/ManageSettings';
+import Login from '@/pages/Login';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
 
-  // Show loading spinner while checking app public settings or auth
   if (isLoadingPublicSettings || isLoadingAuth) {
     return (
-      <div className="fixed inset-0 flex items-center justify-center">
-        <div className="w-8 h-8 border-4 border-slate-200 border-t-slate-800 rounded-full animate-spin"></div>
+      <div className="fixed inset-0 flex items-center justify-center bg-background">
+        <div className="w-8 h-8 border-2 border-border border-t-primary rounded-full animate-spin"></div>
       </div>
     );
   }
 
-  // Handle authentication errors
   if (authError) {
     if (authError.type === 'user_not_registered') {
       return <UserNotRegisteredError />;
     } else if (authError.type === 'auth_required') {
-      // Redirect to login automatically
       navigateToLogin();
       return null;
     }
   }
 
-  // Render the main app
   return (
     <Routes>
-      {/* Add your page Route elements here */}
+      <Route path="/login" element={<Login />} />
+
+      <Route element={<PublicLayout />}>
+        <Route path="/" element={<Home />} />
+        <Route path="/team" element={<Team />} />
+        <Route path="/gallery" element={<Gallery />} />
+        <Route path="/outreach" element={<Outreach />} />
+        <Route path="/stats" element={<Stats />} />
+        <Route path="/contact" element={<Contact />} />
+      </Route>
+
+      <Route element={<SimpleProtectedRoute />}>
+        <Route path="/admin" element={<AdminLayout />}>
+          <Route index element={<AdminDashboard />} />
+          <Route path="team" element={<ManageTeam />} />
+          <Route path="timeline" element={<ManageTimeline />} />
+          <Route path="gallery" element={<ManageGallery />} />
+          <Route path="stats" element={<ManageStats />} />
+          <Route path="sponsors" element={<ManageSponsors />} />
+          <Route path="outreach" element={<ManageOutreach />} />
+          <Route path="submissions" element={<AdminSubmissions />} />
+          <Route path="settings" element={<ManageSettings />} />
+        </Route>
+      </Route>
+
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
 };
 
-
 function App() {
-
   return (
     <AuthProvider>
       <QueryClientProvider client={queryClientInstance}>
