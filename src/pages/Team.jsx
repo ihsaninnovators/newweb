@@ -14,6 +14,15 @@ export default function Team() {
       .finally(() => setLoading(false));
   }, []);
 
+  const subTeamColor = {
+    "Mechanical": "text-orange-400",
+    "Programming": "text-blue-400",
+    "Business/Outreach": "text-green-400",
+    "CAD": "text-primary",
+    "Admin": "text-primary",
+    "Mentor": "text-primary",
+  };
+
   const groups = ["All", "Captain", "Mentor", "Member"];
   const filtered = filter === "All" ? members : members.filter((m) => m.group === filter);
 
@@ -46,7 +55,7 @@ export default function Team() {
               </div>
               <p className="font-bold">{m.name}</p>
               <p className="mono-tag mt-1 text-primary">[{m.role}]</p>
-              <p className="mono-tag mt-1">[{m.sub_team}]</p>
+              <p className={`mono-tag mt-1 ${subTeamColor[m.sub_team] || "text-primary"}`}>[{m.sub_team}]</p>
               {m.bio && <p className="text-sm text-muted-foreground mt-3 leading-relaxed line-clamp-3">{m.bio}</p>}
             </div>
           ))}
