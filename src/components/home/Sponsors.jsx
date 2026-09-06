@@ -16,7 +16,7 @@ export default function Sponsors() {
   return (
     <section className="border-t border-border py-24 md:py-32 bg-secondary/30">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <SectionHeading tag="06 / SPONSORS" title="Backed by the best" subtitle="Organizations that make our work possible." align="center" />
+        <SectionHeading title="Sponsors" align="center" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border">
           {sponsors.map((s) => {
             const inner = (
