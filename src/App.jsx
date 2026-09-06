@@ -6,7 +6,6 @@ import PageNotFound from './lib/PageNotFound';
 import { AuthProvider, useAuth } from '@/lib/AuthContext';
 import UserNotRegisteredError from '@/components/UserNotRegisteredError';
 import ScrollToTop from './components/ScrollToTop';
-import SimpleProtectedRoute from '@/components/SimpleProtectedRoute';
 import PublicLayout from '@/components/PublicLayout';
 // Public pages
 import Home from '@/pages/Home';
@@ -15,18 +14,6 @@ import Gallery from '@/pages/Gallery';
 import Outreach from '@/pages/Outreach';
 import Stats from '@/pages/Stats';
 import Contact from '@/pages/Contact';
-// Admin
-import AdminLayout from '@/components/AdminLayout';
-import AdminDashboard from '@/pages/admin/AdminDashboard';
-import ManageTeam from '@/pages/admin/ManageTeam';
-import ManageTimeline from '@/pages/admin/ManageTimeline';
-import ManageGallery from '@/pages/admin/ManageGallery';
-import ManageStats from '@/pages/admin/ManageStats';
-import ManageSponsors from '@/pages/admin/ManageSponsors';
-import ManageOutreach from '@/pages/admin/ManageOutreach';
-import AdminSubmissions from '@/pages/admin/AdminSubmissions';
-import ManageSettings from '@/pages/admin/ManageSettings';
-import Login from '@/pages/Login';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -50,8 +37,6 @@ const AuthenticatedApp = () => {
 
   return (
     <Routes>
-      <Route path="/login" element={<Login />} />
-
       <Route element={<PublicLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/team" element={<Team />} />
@@ -60,21 +45,6 @@ const AuthenticatedApp = () => {
         <Route path="/stats" element={<Stats />} />
         <Route path="/contact" element={<Contact />} />
       </Route>
-
-      <Route element={<SimpleProtectedRoute />}>
-        <Route path="/admin" element={<AdminLayout />}>
-          <Route index element={<AdminDashboard />} />
-          <Route path="team" element={<ManageTeam />} />
-          <Route path="timeline" element={<ManageTimeline />} />
-          <Route path="gallery" element={<ManageGallery />} />
-          <Route path="stats" element={<ManageStats />} />
-          <Route path="sponsors" element={<ManageSponsors />} />
-          <Route path="outreach" element={<ManageOutreach />} />
-          <Route path="submissions" element={<AdminSubmissions />} />
-          <Route path="settings" element={<ManageSettings />} />
-        </Route>
-      </Route>
-
       <Route path="*" element={<PageNotFound />} />
     </Routes>
   );
