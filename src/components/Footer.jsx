@@ -44,7 +44,7 @@ export default function Footer() {
 
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between gap-4">
           <p className="mono-tag">© {new Date().getFullYear()} IHSAN INNOVATORS — ALL RIGHTS RESERVED</p>
-          <p className="mono-tag">SAN JOSE, CA · EST. 2020</p>
+          <p className="mono-tag">SAN JOSE, CA · EST. 2024</p>
         </div>
       </div>
     </footer>
