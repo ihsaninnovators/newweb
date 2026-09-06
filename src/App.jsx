@@ -9,7 +9,6 @@ import ScrollToTop from './components/ScrollToTop';
 import PublicLayout from '@/components/PublicLayout';
 // Public pages
 import Home from '@/pages/Home';
-import Team from '@/pages/Team';
 import Gallery from '@/pages/Gallery';
 import Outreach from '@/pages/Outreach';
 import Stats from '@/pages/Stats';
@@ -39,7 +38,6 @@ const AuthenticatedApp = () => {
     <Routes>
       <Route element={<PublicLayout />}>
         <Route path="/" element={<Home />} />
-        <Route path="/team" element={<Team />} />
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/outreach" element={<Outreach />} />
         <Route path="/stats" element={<Stats />} />

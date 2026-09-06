@@ -24,7 +24,6 @@ export default function Footer() {
             <p className="mono-tag mb-5">[NAVIGATE]</p>
             <ul className="space-y-3">
               <li><Link to="/" className="text-sm hover:text-primary transition-colors">Home</Link></li>
-              <li><Link to="/team" className="text-sm hover:text-primary transition-colors">Team</Link></li>
               <li><Link to="/gallery" className="text-sm hover:text-primary transition-colors">Gallery</Link></li>
               <li><Link to="/outreach" className="text-sm hover:text-primary transition-colors">Outreach</Link></li>
               <li><Link to="/contact" className="text-sm hover:text-primary transition-colors">Contact</Link></li>

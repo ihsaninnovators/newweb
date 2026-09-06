@@ -30,17 +30,14 @@ export default function Hero() {
           {settings?.mission_statement || "Preparing tomorrow's innovators for today's challenges."}
         </p>
         <div className="mt-10 flex flex-wrap gap-4">
-          <Link to="/team" className="btn-primary">
-            MEET THE TEAM <ArrowRight size={15} className="ml-2" />
-          </Link>
-          <Link to="/gallery" className="btn-ghost">VIEW GALLERY</Link>
+          <Link to="/gallery" className="btn-primary">VIEW GALLERY <ArrowRight size={15} className="ml-2" /></Link>
         </div>
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 border-t border-border">
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-4 flex justify-between mono-tag">
           <span>SCROLL_TO_EXPLORE</span>
-          <span className="hidden md:block">EST. 2020</span>
+          <span className="hidden md:block">EST. 2024</span>
         </div>
       </div>
     </section>
