@@ -54,7 +54,6 @@ export default function Team() {
                 )}
               </div>
               <p className="font-bold">{m.name}</p>
-              <p className="mono-tag mt-1 text-primary">[{m.role}]</p>
               <p className={`mono-tag mt-1 ${subTeamColor[m.sub_team] || "text-primary"}`}>[{m.sub_team}]</p>
               {m.bio && <p className="text-sm text-muted-foreground mt-3 leading-relaxed line-clamp-3">{m.bio}</p>}
             </div>
