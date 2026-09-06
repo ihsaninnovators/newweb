@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Instagram, Github, Youtube, Mail } from "lucide-react";
+import { Instagram, Github, Mail } from "lucide-react";
 
 export default function Footer() {
   return (
@@ -36,7 +36,6 @@ export default function Footer() {
             <div className="flex gap-4">
               <a href="https://instagram.com" target="_blank" rel="noreferrer" className="p-2 border border-border hover:border-primary hover:text-primary transition-colors"><Instagram size={16} /></a>
               <a href="https://github.com/ihsaninnovators/ihsaninnovatorswebsite" target="_blank" rel="noreferrer" className="p-2 border border-border hover:border-primary hover:text-primary transition-colors"><Github size={16} /></a>
-              <a href="https://youtube.com" target="_blank" rel="noreferrer" className="p-2 border border-border hover:border-primary hover:text-primary transition-colors"><Youtube size={16} /></a>
               <a href="mailto:ihsaninnovators@gmail.com" className="p-2 border border-border hover:border-primary hover:text-primary transition-colors"><Mail size={16} /></a>
             </div>
           </div>
