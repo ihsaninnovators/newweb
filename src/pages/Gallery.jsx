@@ -3,10 +3,13 @@ import { base44 } from "@/api/base44Client";
 import SectionHeading from "@/components/SectionHeading";
 import { X } from "lucide-react";
 
+const SEASONS = ["2025-26", "2026-27"];
+
 export default function Gallery() {
   const [items, setItems] = useState([]);
   const [loading, setLoading] = useState(true);
   const [active, setActive] = useState(null);
+  const [season, setSeason] = useState("2025-26");
 
   useEffect(() => {
     base44.entities.GalleryItem.list("display_order")
@@ -15,17 +18,27 @@ export default function Gallery() {
       .finally(() => setLoading(false));
   }, []);
 
+  const filtered = items.filter((it) => it.season === season);
+
   return (
     <div className="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28">
       <SectionHeading tag="[ GALLERY ]" title="Project Gallery" subtitle="Robots, parts, and moments from our build seasons." />
 
+      <div className="flex flex-wrap gap-2 mb-12 border-b border-border pb-6">
+        {SEASONS.map((s) => (
+          <button key={s} onClick={() => setSeason(s)} className={`mono-tag px-4 py-2 border transition-colors ${season === s ? "border-primary text-primary" : "border-border text-muted-foreground hover:text-foreground"}`}>
+            [{s.toUpperCase()} SEASON]
+          </button>
+        ))}
+      </div>
+
       {loading ? (
         <p className="mono-tag py-20 text-center">[LOADING...]</p>
-      ) : items.length === 0 ? (
+      ) : filtered.length === 0 ? (
         <p className="mono-tag py-20 text-center">[NO_RECORDS]</p>
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
-          {items.map((it) => (
+          {filtered.map((it) => (
             <button key={it.id} onClick={() => setActive(it)} className="bg-background group text-left">
               <div className="aspect-[4/3] overflow-hidden">
                 {it.image_url ? (

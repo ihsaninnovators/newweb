@@ -15,6 +15,15 @@
       "format": "uri",
       "title": "Image URL"
     },
+    "season": {
+      "type": "string",
+      "title": "Season",
+      "enum": [
+        "2025-26",
+        "2026-27"
+      ],
+      "default": "2025-26"
+    },
     "component_id": {
       "type": "string",
       "title": "Component ID",
