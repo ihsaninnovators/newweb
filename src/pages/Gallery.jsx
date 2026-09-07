@@ -5,20 +5,20 @@ import { SEASON_2025_26, SEASON_2026_27 } from "@/data/gallerySeasons";
 
 const SEASONS = ["2025-26", "2026-27"];
 
-// Load every image in src/assets/gallery/ at build time (Vite glob).
-const imageModules = import.meta.glob("../assets/gallery/*", {
-  eager: true,
-  query: "?url",
-  import: "default",
-});
-
-const ALL_ITEMS = Object.entries(imageModules).map(([path, url]) => {
-  const filename = path.split("/").pop();
-  const season = SEASON_2026_27.has(filename)
-    ? "2026-27"
-    : "2025-26";
-  return { id: filename, image_url: url, season, filename };
-});
+// Build gallery items from the season mappings. Images live in public/images/
+// and are served as static files — no build-time glob needed.
+const ALL_ITEMS = [
+  ...[...SEASON_2025_26].map((f) => ({
+    id: f,
+    image_url: `/images/${f}`,
+    season: "2025-26",
+  })),
+  ...[...SEASON_2026_27].map((f) => ({
+    id: f,
+    image_url: `/images/${f}`,
+    season: "2026-27",
+  })),
+];
 
 export default function Gallery() {
   const [active, setActive] = useState(null);
