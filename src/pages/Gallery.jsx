@@ -12,20 +12,7 @@ const imageModules = import.meta.glob("../../images/*.{jpg,jpeg,png,gif,webp,avi
   import: "default",
 });
 
-const REMOTE_ITEMS = [
-  {
-    id: "08fb22df1_PXL_20260111_060116301.jpg",
-    image_url: "https://media.base44.com/images/public/6a99a526b6f8be408ecdca4a/08fb22df1_PXL_20260111_060116301.jpg",
-    season: "2025-26",
-  },
-  {
-    id: "f7fdec767_PXL_20260131_020817739.jpg",
-    image_url: "https://media.base44.com/images/public/6a99a526b6f8be408ecdca4a/f7fdec767_PXL_20260131_020817739.jpg",
-    season: "2026-27",
-  },
-];
-
-const LOCAL_ITEMS = Object.entries(imageModules)
+const ALL_ITEMS = Object.entries(imageModules)
   .map(([path, url]) => {
     const filename = path.split("/").pop();
     const season = SEASON_2026_27.has(filename) ? "2026-27" : "2025-26";
@@ -33,8 +20,6 @@ const LOCAL_ITEMS = Object.entries(imageModules)
   })
   // Only keep real image files
   .filter((it) => /\.(jpg|jpeg|png|gif|webp|avif)$/i.test(it.id));
-
-const ALL_ITEMS = [...REMOTE_ITEMS, ...LOCAL_ITEMS];
 
 export default function Gallery() {
   const [active, setActive] = useState(null);

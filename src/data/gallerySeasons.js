@@ -2,6 +2,7 @@
 // The season filter tabs use these to group images automatically.
 
 export const SEASON_2025_26 = new Set([
+  "PXL_20260111_060116301.jpg",
   "PXL_20250906_173700496MP.jpg",
   "PXL_20250921_213930667MP.jpg",
   "PXL_20251004_222357927MP.jpg",
@@ -28,4 +29,5 @@ export const SEASON_2025_26 = new Set([
 export const SEASON_2026_27 = new Set([
   "PXL_20260223_044522645.jpg",
   "PXL_20260220_221231022.jpg",
+  "PXL_20260131_020817739.jpg",
 ]);
