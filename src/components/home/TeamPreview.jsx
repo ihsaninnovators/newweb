@@ -13,6 +13,15 @@ export default function TeamPreview() {
 
   const captains = members.filter((m) => m.group === "Captain").slice(0, 4);
 
+  const subTeamColor = {
+    Mechanical: "text-orange-400",
+    Programming: "text-blue-400",
+    "Business/Outreach": "text-green-400",
+    CAD: "text-purple-400",
+    Mentor: "text-amber-400",
+    Admin: "text-red-400",
+  };
+
   return (
     <section className="border-t border-border py-24 md:py-32 bg-secondary/30">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
@@ -25,7 +34,7 @@ export default function TeamPreview() {
             {captains.map((m) => (
               <div key={m.id} className="border border-border p-6">
                 <p className="font-bold">{m.name}</p>
-                <p className="mono-tag mt-1">[{m.role}]</p>
+                <p className={`mono-tag mt-1 ${subTeamColor[m.sub_team] || "text-muted-foreground"}`}>[{m.role}]</p>
               </div>
             ))}
           </div>
