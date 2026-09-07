@@ -22,7 +22,6 @@ export default function Hero() {
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-10 w-full">
-        <p className="mono-tag mb-6 text-primary">[ FTC_TEAM_{settings?.team_number || "#30695"} · {settings?.location || "SAN JOSE, CA"} ]</p>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] max-w-4xl">
           IHSAN<br/>INNOVATORS
         </h1>
@@ -35,8 +34,7 @@ export default function Hero() {
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-4 flex justify-between mono-tag">
-          <span>SCROLL_TO_EXPLORE</span>
+        <div className="max-w-7xl mx-auto px-6 md:px-10 py-4 flex justify-end mono-tag">
           <span className="hidden md:block">EST. 2024</span>
         </div>
       </div>

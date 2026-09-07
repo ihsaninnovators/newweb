@@ -16,7 +16,7 @@ export default function Stats() {
 
   return (
     <div className="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28">
-      <SectionHeading tag="[ STATISTICS ]" title="By The Numbers" subtitle="Measurable impact from our seasons of competition and outreach." />
+      <SectionHeading title="By The Numbers" subtitle="Measurable impact from our seasons of competition and outreach." />
 
       {loading ? (
         <p className="mono-tag py-20 text-center">[LOADING...]</p>
