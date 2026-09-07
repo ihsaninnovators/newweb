@@ -5,8 +5,8 @@ import { SEASON_2025_26, SEASON_2026_27 } from "@/data/gallerySeasons";
 
 const SEASONS = ["2025-26", "2026-27"];
 
-// Load every image in src/assets/gallery/ at build time.
-const imageModules = import.meta.glob("@/assets/gallery/*", {
+// Load every image in src/assets/gallery/ at build time (Vite glob).
+const imageModules = import.meta.glob("../assets/gallery/*", {
   eager: true,
   query: "?url",
   import: "default",
