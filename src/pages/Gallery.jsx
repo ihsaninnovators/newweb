@@ -42,16 +42,12 @@ export default function Gallery() {
             <button key={it.id} onClick={() => setActive(it)} className="bg-background group text-left">
               <div className="aspect-[4/3] overflow-hidden">
                 {it.image_url ? (
-                  <img src={it.image_url} alt={it.title} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                  <img src={it.image_url} alt="" className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
                 ) : (
                   <div className="w-full h-full bg-secondary grid place-items-center"><span className="mono-tag">[NO_IMAGE]</span></div>
                 )}
               </div>
-              <div className="p-5">
-                <p className="mono-tag text-primary">[{it.component_id}]</p>
-                <p className="font-bold mt-2">{it.title}</p>
-                <p className="mono-tag mt-1">[{it.material}]</p>
-              </div>
+
             </button>
           ))}
         </div>
@@ -61,12 +57,7 @@ export default function Gallery() {
         <div className="fixed inset-0 z-[100] bg-background/95 backdrop-blur-sm flex items-center justify-center p-6" onClick={() => setActive(null)}>
           <button className="absolute top-6 right-6 p-2 text-muted-foreground hover:text-primary" onClick={() => setActive(null)}><X size={24} /></button>
           <div className="max-w-4xl w-full" onClick={(e) => e.stopPropagation()}>
-            {active.image_url && <img src={active.image_url} alt={active.title} className="w-full max-h-[70vh] object-contain border border-border" />}
-            <div className="mt-6">
-              <p className="mono-tag text-primary">[{active.component_id}] · [{active.material}]</p>
-              <h3 className="text-2xl font-bold mt-2">{active.title}</h3>
-              {active.description && <p className="text-muted-foreground mt-3 leading-relaxed">{active.description}</p>}
-            </div>
+            {active.image_url && <img src={active.image_url} alt="" className="w-full max-h-[80vh] object-contain border border-border" />}
           </div>
         </div>
       )}
