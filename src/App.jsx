@@ -10,7 +10,6 @@ import PublicLayout from '@/components/PublicLayout';
 // Public pages
 import Home from '@/pages/Home';
 import Gallery from '@/pages/Gallery';
-import Outreach from '@/pages/Outreach';
 import Stats from '@/pages/Stats';
 import Contact from '@/pages/Contact';
 
@@ -39,7 +38,6 @@ const AuthenticatedApp = () => {
       <Route element={<PublicLayout />}>
         <Route path="/" element={<Home />} />
         <Route path="/gallery" element={<Gallery />} />
-        <Route path="/outreach" element={<Outreach />} />
         <Route path="/stats" element={<Stats />} />
         <Route path="/contact" element={<Contact />} />
       </Route>

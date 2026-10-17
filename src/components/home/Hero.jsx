@@ -35,7 +35,6 @@ export default function Hero() {
         </p>
         <div className="mt-10 flex flex-wrap gap-4">
           <Link to="/gallery" className="btn-primary">VIEW GALLERY <ArrowRight size={15} className="ml-2" /></Link>
-          <Link to="/outreach" className="btn-ghost">OUR OUTREACH</Link>
         </div>
       </div>
 
