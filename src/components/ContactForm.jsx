@@ -19,7 +19,7 @@ export default function ContactForm() {
     }
     setSubmitting(true);
     try {
-      await base44.entities.ContactSubmission.create({
+      await base44.functions.invoke("submitContactForm", {
         name: `${form.first} ${form.last}`.trim(),
         email: form.email,
         message: form.message,
