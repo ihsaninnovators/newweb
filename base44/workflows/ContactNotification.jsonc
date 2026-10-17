@@ -1,0 +1,42 @@
+{
+  "definition": {
+    "document": {
+      "dsl": "1.0.0",
+      "name": "contact_notification",
+      "version": "1.0",
+      "namespace": "base44"
+    },
+    "do": [
+      {
+        "notify_team": {
+          "call": "invoke_backend_function",
+          "with": {
+            "function_name": "sendContactNotification",
+            "args": {
+              "name": "${ .trigger.data.name }",
+              "email": "${ .trigger.data.email }",
+              "message": "${ .trigger.data.message }"
+            }
+          },
+          "then": "end",
+          "x-base44": {
+            "title": "Notify team",
+            "description": "Email the team the new message"
+          }
+        }
+      }
+    ]
+  },
+  "name": "Contact Notification",
+  "trigger": {
+    "condition": null,
+    "config": {
+      "trigger_type": "entity",
+      "events": [
+        "create"
+      ],
+      "entity_name": "ContactSubmission"
+    }
+  },
+  "description": "Emails the team at ihsaninnovators@gmail.com every time a new contact submission is created."
+}
