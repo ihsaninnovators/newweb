@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { base44 } from "@/api/base44Client";
 import SectionHeading from "@/components/SectionHeading";
-import FadeIn from "@/components/FadeIn";
 
 export default function TeamPreview() {
   const [members, setMembers] = useState([]);
@@ -31,7 +30,6 @@ export default function TeamPreview() {
         {captains.length === 0 ? (
           <p className="mono-tag">[NO_CAPTAINS_LISTED]</p>
         ) : (
-          <FadeIn>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border">
             {captains.map((m) => (
               <div key={m.id} className="bg-background p-6 card-hover group">
@@ -41,7 +39,6 @@ export default function TeamPreview() {
               </div>
             ))}
           </div>
-          </FadeIn>
         )}
       </div>
     </section>

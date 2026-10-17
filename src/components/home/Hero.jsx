@@ -29,19 +29,19 @@ export default function Hero() {
         animate={{ opacity: 1, y: 0 }}
         transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
       >
-        <div className="flex items-center gap-3 mb-6">
+        <motion.div className="flex items-center gap-3 mb-6" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.2, duration: 0.5 }}>
           <span className="h-px w-10 bg-primary" />
           <p className="mono-tag text-primary">FTC #30695 · SAN JOSE, CA</p>
-        </div>
+        </motion.div>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] max-w-4xl">
           IHSAN<br/>INNOVATORS
         </h1>
-        <p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed">
+        <motion.p className="mt-8 text-lg md:text-xl text-muted-foreground max-w-xl leading-relaxed" initial={{ opacity: 0 }} animate={{ opacity: 1 }} transition={{ delay: 0.35, duration: 0.5 }}>
           {settings?.mission_statement || "Preparing tomorrow's innovators for today's challenges."}
-        </p>
-        <div className="mt-10 flex flex-wrap gap-4">
+        </motion.p>
+        <motion.div className="mt-10 flex flex-wrap gap-4" initial={{ opacity: 0, y: 12 }} animate={{ opacity: 1, y: 0 }} transition={{ delay: 0.5, duration: 0.5 }}>
           <Link to="/gallery" className="btn-primary">VIEW GALLERY <ArrowRight size={15} className="ml-2" /></Link>
-        </div>
+        </motion.div>
       </motion.div>
 
       <div className="absolute bottom-0 left-0 right-0 border-t border-border">

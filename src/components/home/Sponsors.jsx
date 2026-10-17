@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { base44 } from "@/api/base44Client";
 import SectionHeading from "@/components/SectionHeading";
-import FadeIn from "@/components/FadeIn";
 
 export default function Sponsors() {
   const [sponsors, setSponsors] = useState([]);
@@ -18,7 +17,6 @@ export default function Sponsors() {
     <section className="border-t border-border py-24 md:py-32 bg-secondary/30">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <SectionHeading index="06" tag="SPONSORS" title="Our partners" align="center" />
-        <FadeIn>
         <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border">
           {sponsors.map((s) => {
             const inner = (
@@ -37,7 +35,6 @@ export default function Sponsors() {
             );
           })}
         </div>
-        </FadeIn>
       </div>
     </section>
   );

@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { base44 } from "@/api/base44Client";
 import SectionHeading from "@/components/SectionHeading";
-import FadeIn from "@/components/FadeIn";
 
 export default function About() {
   const [settings, setSettings] = useState(null);
@@ -19,7 +18,6 @@ export default function About() {
           <SectionHeading index="01" tag="ABOUT" title="Who we are" />
         </div>
         <div className="md:col-span-7">
-          <FadeIn>
           <p className="text-xl md:text-2xl leading-relaxed font-light">
             {settings?.about_text || "We are FTC Team #30695, a robotics team based in San Jose, California. We build, program, and compete with robots while spreading STEM education throughout our community."}
           </p>
@@ -33,7 +31,6 @@ export default function About() {
               <p className="text-muted-foreground leading-relaxed">{settings?.location || "San Jose, CA"}</p>
             </div>
           </div>
-          </FadeIn>
         </div>
       </div>
     </section>
