@@ -2,17 +2,15 @@ import base44 from "@base44/vite-plugin"
 import react from '@vitejs/plugin-react'
 import { defineConfig } from 'vite'
 
-// https://vite.dev/config/
 export default defineConfig({
-  base: './', // <--- Add this line here
+  base: '/', // <--- Change this from './' to '/'
   plugins: [
     base44({
-      // Support for legacy code that imports the base44 SDK with @integrations, @entities, etc.
       legacySDKImports: process.env.BASE44_LEGACY_SDK_IMPORTS === 'true',
       hmrNotifier: true,
       navigationNotifier: true,
       analyticsTracker: true,
-      visualEditAgent: true
+      visualEditAgent: true,
     }),
     react(),
   ]
