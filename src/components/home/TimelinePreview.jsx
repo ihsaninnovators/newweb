@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { base44 } from "@/api/base44Client";
 import SectionHeading from "@/components/SectionHeading";
+import FadeIn from "@/components/FadeIn";
 
 export default function TimelinePreview() {
   const [events, setEvents] = useState([]);
@@ -17,6 +18,7 @@ export default function TimelinePreview() {
     <section className="border-t border-border py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <SectionHeading index="05" tag="TIMELINE" title="Our journey" />
+        <FadeIn>
         <div className="relative">
           <div className="absolute left-0 top-0 bottom-0 w-px bg-border hidden md:block" />
           <div className="space-y-12">
@@ -30,6 +32,7 @@ export default function TimelinePreview() {
             ))}
           </div>
         </div>
+        </FadeIn>
       </div>
     </section>
   );

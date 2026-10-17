@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { base44 } from "@/api/base44Client";
 import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   const [settings, setSettings] = useState(null);
@@ -22,7 +23,12 @@ export default function Hero() {
         <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
       </div>
 
-      <div className="relative max-w-7xl mx-auto px-6 md:px-10 w-full">
+      <motion.div
+        className="relative max-w-7xl mx-auto px-6 md:px-10 w-full"
+        initial={{ opacity: 0, y: 24 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] }}
+      >
         <div className="flex items-center gap-3 mb-6">
           <span className="h-px w-10 bg-primary" />
           <p className="mono-tag text-primary">FTC #30695 · SAN JOSE, CA</p>
@@ -36,7 +42,7 @@ export default function Hero() {
         <div className="mt-10 flex flex-wrap gap-4">
           <Link to="/gallery" className="btn-primary">VIEW GALLERY <ArrowRight size={15} className="ml-2" /></Link>
         </div>
-      </div>
+      </motion.div>
 
       <div className="absolute bottom-0 left-0 right-0 border-t border-border">
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-4 flex justify-between mono-tag">

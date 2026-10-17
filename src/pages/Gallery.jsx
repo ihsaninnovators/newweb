@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import SectionHeading from "@/components/SectionHeading";
+import FadeIn from "@/components/FadeIn";
 import { X } from "lucide-react";
 import { SEASON_2025_26, SEASON_2026_27 } from "@/data/gallerySeasons";
 
@@ -31,6 +32,7 @@ export default function Gallery() {
     <div className="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28">
       <SectionHeading tag="[ GALLERY ]" title="Project Gallery" subtitle="Robots, parts, and moments from our build seasons." />
 
+      <FadeIn>
       <div className="flex flex-wrap gap-2 mb-12 border-b border-border pb-6">
         {SEASONS.map((s) => (
           <button key={s} onClick={() => setSeason(s)} className={`mono-tag px-4 py-2 border transition-colors ${season === s ? "border-primary text-primary" : "border-border text-muted-foreground hover:text-foreground"}`}>
@@ -38,10 +40,12 @@ export default function Gallery() {
           </button>
         ))}
       </div>
+      </FadeIn>
 
       {filtered.length === 0 ? (
         <p className="mono-tag py-20 text-center">[NO_RECORDS]</p>
       ) : (
+        <FadeIn>
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-px bg-border border border-border">
           {filtered.map((it) => (
             <button key={it.id} onClick={() => setActive(it)} className="bg-background group text-left">
@@ -51,6 +55,7 @@ export default function Gallery() {
             </button>
           ))}
         </div>
+        </FadeIn>
       )}
 
       {active && (
