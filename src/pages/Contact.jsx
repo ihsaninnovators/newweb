@@ -3,6 +3,7 @@ import { base44 } from "@/api/base44Client";
 import SectionHeading from "@/components/SectionHeading";
 import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
 import FadeIn from "@/components/FadeIn";
+import ContactForm from "@/components/ContactForm";
 
 export default function Contact() {
   const [settings, setSettings] = useState(null);
@@ -62,6 +63,8 @@ export default function Contact() {
           </a>
         </div>
       </div></FadeIn>
+
+      <ContactForm />
     </div>
   );
 }
