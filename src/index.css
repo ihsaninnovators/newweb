@@ -6,22 +6,22 @@
   :root {
     --background: 0 0% 3.1%;
     --foreground: 0 0% 95%;
-    --card: 0 0% 3.1%;
+    --card: 0 0% 4.5%;
     --card-foreground: 0 0% 95%;
-    --popover: 0 0% 3.1%;
+    --popover: 0 0% 4.5%;
     --popover-foreground: 0 0% 95%;
     --primary: 219 100% 60%;
     --primary-foreground: 0 0% 100%;
     --secondary: 0 0% 10%;
     --secondary-foreground: 0 0% 95%;
     --muted: 0 0% 10%;
-    --muted-foreground: 0 0% 53%;
+    --muted-foreground: 0 0% 57%;
     --accent: 0 0% 10%;
     --accent-foreground: 0 0% 95%;
     --destructive: 0 84% 60%;
     --destructive-foreground: 0 0% 98%;
-    --border: 0 0% 10.2%;
-    --input: 0 0% 10.2%;
+    --border: 0 0% 12%;
+    --input: 0 0% 12%;
     --ring: 219 100% 60%;
     --chart-1: 219 100% 60%;
     --chart-2: 173 58% 39%;
@@ -45,6 +45,11 @@
   }
   body {
     @apply bg-background text-foreground font-body antialiased;
+    background-image:
+      linear-gradient(hsl(var(--border) / 0.35) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--border) / 0.35) 1px, transparent 1px);
+    background-size: 48px 48px;
+    background-position: -1px -1px;
   }
   ::selection {
     background-color: hsl(219 100% 60%);
@@ -71,6 +76,9 @@
   }
   .field-dark {
     @apply w-full bg-transparent border-b border-border px-0 py-3 text-foreground placeholder:text-muted-foreground focus:border-primary focus:outline-none transition-colors duration-200;
+  }
+  .card-hover {
+    @apply transition-all duration-300 hover:border-primary/60;
   }
 }
 

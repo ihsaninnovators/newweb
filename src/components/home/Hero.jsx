@@ -17,11 +17,16 @@ export default function Hero() {
   return (
     <section className="relative min-h-[92vh] flex items-center overflow-hidden">
       <div className="absolute inset-0">
-        <img src={heroImg} alt="" className="w-full h-full object-cover opacity-30" />
-        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/85 to-background/40" />
+        <img src={heroImg} alt="" className="w-full h-full object-cover opacity-25" />
+        <div className="absolute inset-0 bg-gradient-to-r from-background via-background/90 to-background/50" />
+        <div className="absolute inset-0 bg-gradient-to-t from-background via-transparent to-background/60" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 md:px-10 w-full">
+        <div className="flex items-center gap-3 mb-6">
+          <span className="h-px w-10 bg-primary" />
+          <p className="mono-tag text-primary">FTC #30695 · SAN JOSE, CA</p>
+        </div>
         <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] max-w-4xl">
           IHSAN<br/>INNOVATORS
         </h1>
@@ -30,11 +35,13 @@ export default function Hero() {
         </p>
         <div className="mt-10 flex flex-wrap gap-4">
           <Link to="/gallery" className="btn-primary">VIEW GALLERY <ArrowRight size={15} className="ml-2" /></Link>
+          <Link to="/outreach" className="btn-ghost">OUR OUTREACH</Link>
         </div>
       </div>
 
       <div className="absolute bottom-0 left-0 right-0 border-t border-border">
-        <div className="max-w-7xl mx-auto px-6 md:px-10 py-4 flex justify-end mono-tag">
+        <div className="max-w-7xl mx-auto px-6 md:px-10 py-4 flex justify-between mono-tag">
+          <span className="hidden md:block">SCROLL TO EXPLORE</span>
           <span className="hidden md:block">EST. 2024</span>
         </div>
       </div>

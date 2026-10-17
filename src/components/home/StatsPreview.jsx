@@ -17,14 +17,14 @@ export default function StatsPreview() {
   return (
     <section className="border-t border-border py-24 md:py-32">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <SectionHeading tag="03 / BY THE NUMBERS" title="Our impact" align="center" />
+        <SectionHeading index="03" tag="BY THE NUMBERS" title="Our impact" align="center" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border">
           {stats.slice(0, 4).map((s) => (
-            <div key={s.id} className="bg-background p-8 md:p-10 text-center">
+            <div key={s.id} className="bg-background p-8 md:p-12 text-center card-hover">
               <p className="text-4xl md:text-6xl font-bold text-primary tabular-nums">
                 <StatCounter value={s.value} suffix={s.suffix || ""} />
               </p>
-              <p className="mono-tag mt-4">[{s.label}]</p>
+              <p className="mono-tag mt-5">[{s.label}]</p>
             </div>
           ))}
         </div>

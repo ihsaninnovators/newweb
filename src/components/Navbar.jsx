@@ -27,7 +27,7 @@ export default function Navbar() {
   }, []);
 
   return (
-    <header className={`sticky top-0 z-50 transition-colors duration-300 ${scrolled ? "bg-background/85 backdrop-blur-md border-b border-border" : "bg-transparent border-b border-transparent"}`}>
+    <header className={`sticky top-0 z-50 transition-colors duration-300 ${scrolled ? "bg-background/90 backdrop-blur-md border-b border-border" : "bg-transparent border-b border-transparent"}`}>
       <nav className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
           <span className="grid place-items-center w-9 h-9 border border-foreground font-mono text-xs font-bold group-hover:border-primary group-hover:text-primary transition-colors">ii</span>
@@ -41,8 +41,9 @@ export default function Navbar() {
           {LINKS.map((l) => {
             const active = location.pathname === l.path;
             return (
-              <Link key={l.path} to={l.path} className={`mono-tag transition-colors ${active ? "text-primary" : "hover:text-primary"}`}>
+              <Link key={l.path} to={l.path} className={`mono-tag transition-colors relative py-1 ${active ? "text-primary" : "hover:text-primary"}`}>
                 {l.label}
+                {active && <span className="absolute -bottom-0.5 left-0 right-0 h-px bg-primary" />}
               </Link>
             );
           })}
@@ -59,8 +60,9 @@ export default function Navbar() {
             {LINKS.map((l) => {
               const active = location.pathname === l.path;
               return (
-                <Link key={l.path} to={l.path} className={`py-3 mono-tag border-b border-border last:border-0 ${active ? "text-primary" : ""}`}>
+                <Link key={l.path} to={l.path} className={`py-3 mono-tag border-b border-border last:border-0 flex items-center justify-between ${active ? "text-primary" : ""}`}>
                   {l.label}
+                  {active && <span className="h-1.5 w-1.5 bg-primary" />}
                 </Link>
               );
             })}

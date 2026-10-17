@@ -16,13 +16,13 @@ export default function Sponsors() {
   return (
     <section className="border-t border-border py-24 md:py-32 bg-secondary/30">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <SectionHeading title="Sponsors" align="center" />
+        <SectionHeading index="06" tag="SPONSORS" title="Our partners" align="center" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border">
           {sponsors.map((s) => {
             const inner = (
-              <div className="bg-background p-8 md:p-12 flex items-center justify-center h-full hover:bg-secondary transition-colors">
+              <div className="bg-background p-8 md:p-12 flex items-center justify-center h-full hover:bg-secondary transition-colors group">
                 {s.logo_url ? (
-                  <img src={s.logo_url} alt={s.name} className="max-h-16 max-w-[140px] object-contain opacity-70 hover:opacity-100 transition-opacity" />
+                  <img src={s.logo_url} alt={s.name} className="max-h-16 max-w-[140px] object-contain opacity-60 group-hover:opacity-100 transition-opacity" />
                 ) : (
                   <span className="font-bold text-lg">{s.name}</span>
                 )}

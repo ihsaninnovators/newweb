@@ -6,8 +6,8 @@ export default function Footer() {
   return (
     <footer className="border-t border-border bg-background">
       <div className="max-w-7xl mx-auto px-6 md:px-10 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-4 gap-10">
-          <div className="md:col-span-2">
+        <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
+          <div className="md:col-span-5">
             <Link to="/" className="flex items-center gap-3 mb-6">
               <span className="grid place-items-center w-9 h-9 border border-foreground font-mono text-xs font-bold">ii</span>
               <div className="leading-none">
@@ -20,22 +20,23 @@ export default function Footer() {
             </p>
           </div>
 
-          <div>
+          <div className="md:col-span-3 md:col-start-7">
             <p className="mono-tag mb-5">[NAVIGATE]</p>
             <ul className="space-y-3">
               <li><Link to="/" className="text-sm hover:text-primary transition-colors">Home</Link></li>
               <li><Link to="/gallery" className="text-sm hover:text-primary transition-colors">Gallery</Link></li>
               <li><Link to="/outreach" className="text-sm hover:text-primary transition-colors">Outreach</Link></li>
+              <li><Link to="/stats" className="text-sm hover:text-primary transition-colors">Stats</Link></li>
               <li><Link to="/contact" className="text-sm hover:text-primary transition-colors">Contact</Link></li>
             </ul>
           </div>
 
-          <div>
+          <div className="md:col-span-3">
             <p className="mono-tag mb-5">[CONNECT]</p>
-            <div className="flex gap-4">
-              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="p-2 border border-border hover:border-primary hover:text-primary transition-colors"><Instagram size={16} /></a>
-              <a href="https://github.com/ihsaninnovators/ihsaninnovatorswebsite" target="_blank" rel="noreferrer" className="p-2 border border-border hover:border-primary hover:text-primary transition-colors"><Github size={16} /></a>
-              <a href="mailto:ihsaninnovators@gmail.com" className="p-2 border border-border hover:border-primary hover:text-primary transition-colors"><Mail size={16} /></a>
+            <div className="flex gap-3">
+              <a href="https://instagram.com" target="_blank" rel="noreferrer" className="p-2.5 border border-border hover:border-primary hover:text-primary transition-colors"><Instagram size={16} /></a>
+              <a href="https://github.com/ihsaninnovators/ihsaninnovatorswebsite" target="_blank" rel="noreferrer" className="p-2.5 border border-border hover:border-primary hover:text-primary transition-colors"><Github size={16} /></a>
+              <a href="mailto:ihsaninnovators@gmail.com" className="p-2.5 border border-border hover:border-primary hover:text-primary transition-colors"><Mail size={16} /></a>
             </div>
           </div>
         </div>

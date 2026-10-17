@@ -25,16 +25,17 @@ export default function TeamPreview() {
   return (
     <section className="border-t border-border py-24 md:py-32 bg-secondary/30">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
-        <SectionHeading tag="04 / THE TEAM" title="Meet our leaders" />
+        <SectionHeading index="04" tag="THE TEAM" title="Meet our leaders" />
 
         {captains.length === 0 ? (
           <p className="mono-tag">[NO_CAPTAINS_LISTED]</p>
         ) : (
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border">
             {captains.map((m) => (
-              <div key={m.id} className="border border-border p-6">
-                <p className="font-bold">{m.name}</p>
-                <p className={`mono-tag mt-1 ${subTeamColor[m.sub_team] || "text-muted-foreground"}`}>[{m.role}]</p>
+              <div key={m.id} className="bg-background p-6 card-hover group">
+                <div className="mb-4 h-px w-8 bg-border group-hover:bg-primary group-hover:w-12 transition-all" />
+                <p className="font-bold text-lg">{m.name}</p>
+                <p className={`mono-tag mt-2 ${subTeamColor[m.sub_team] || "text-muted-foreground"}`}>[{m.role}]</p>
               </div>
             ))}
           </div>
