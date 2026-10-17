@@ -2,6 +2,8 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
+const LOGO_URL = "https://media.base44.com/images/public/6a99a526b6f8be408ecdca4a/dba9b218a_image.png";
+
 const LINKS = [
   { label: "Home", path: "/" },
   { label: "Gallery", path: "/gallery" },
@@ -29,11 +31,8 @@ export default function Navbar() {
     <header className={`sticky top-0 z-50 transition-colors duration-300 ${scrolled ? "bg-background/90 backdrop-blur-md border-b border-border" : "bg-transparent border-b border-transparent"}`}>
       <nav className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
-          <span className="grid place-items-center w-9 h-9 border border-foreground font-mono text-xs font-bold group-hover:border-primary group-hover:text-primary transition-colors">ii</span>
-          <div className="leading-none">
-            <span className="text-sm font-bold tracking-tight block">IHSAN INNOVATORS</span>
-            <span className="mono-tag mt-1 block">FTC #30695</span>
-          </div>
+          <img src={LOGO_URL} alt="Ihsan Innovators" className="h-10 w-auto" />
+          <span className="mono-tag group-hover:text-primary transition-colors">FTC #30695</span>
         </Link>
 
         <div className="hidden md:flex items-center gap-8">

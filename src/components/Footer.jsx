@@ -2,6 +2,8 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Instagram, Github, Mail } from "lucide-react";
 
+const LOGO_URL = "https://media.base44.com/images/public/6a99a526b6f8be408ecdca4a/dba9b218a_image.png";
+
 export default function Footer() {
   return (
     <footer className="border-t border-border bg-background">
@@ -9,11 +11,8 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-12 gap-10">
           <div className="md:col-span-5">
             <Link to="/" className="flex items-center gap-3 mb-6">
-              <span className="grid place-items-center w-9 h-9 border border-foreground font-mono text-xs font-bold">ii</span>
-              <div className="leading-none">
-                <span className="text-sm font-bold tracking-tight block">IHSAN INNOVATORS</span>
-                <span className="mono-tag mt-1 block">FTC #30695</span>
-              </div>
+              <img src={LOGO_URL} alt="Ihsan Innovators" className="h-12 w-auto" />
+              <span className="mono-tag">FTC #30695</span>
             </Link>
             <p className="text-muted-foreground max-w-md leading-relaxed">
               Empowering the youth through technology. Preparing tomorrow's innovators for today's challenges.
