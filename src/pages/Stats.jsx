@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { base44 } from "@/api/base44Client";
 import SectionHeading from "@/components/SectionHeading";
 import StatCounter from "@/components/StatCounter";
+import FadeIn from "@/components/FadeIn";
 
 export default function Stats() {
   const [stats, setStats] = useState([]);
@@ -16,14 +17,14 @@ export default function Stats() {
 
   return (
     <div className="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28">
-      <SectionHeading tag="[ STATS ]" title="By The Numbers" subtitle="Measurable impact from our seasons of competition and outreach." />
+      <FadeIn><SectionHeading tag="[ STATS ]" title="By The Numbers" subtitle="Measurable impact from our seasons of competition and outreach." /></FadeIn>
 
       {loading ? (
         <p className="mono-tag py-20 text-center">[LOADING...]</p>
       ) : stats.length === 0 ? (
         <p className="mono-tag py-20 text-center">[NO_RECORDS]</p>
       ) : (
-        <div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-border border border-border">
+        <FadeIn delay={0.1}><div className="grid grid-cols-2 md:grid-cols-3 gap-px bg-border border border-border">
           {stats.map((s, i) => (
             <div key={s.id} className="bg-background p-10 md:p-12 text-center card-hover group">
               <p className="mono-tag mb-6 text-muted-foreground/60">[{String(i + 1).padStart(2, "0")}]</p>
@@ -33,7 +34,7 @@ export default function Stats() {
               <p className="mono-tag mt-5">[{s.label}]</p>
             </div>
           ))}
-        </div>
+        </div></FadeIn>
       )}
     </div>
   );
