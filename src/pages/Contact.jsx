@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { base44 } from "@/api/base44Client";
 import SectionHeading from "@/components/SectionHeading";
 import { Mail, Phone, MapPin, ArrowUpRight } from "lucide-react";
-import FadeIn from "@/components/FadeIn";
 
 export default function Contact() {
   const [settings, setSettings] = useState(null);
@@ -15,9 +14,9 @@ export default function Contact() {
 
   return (
     <div className="max-w-7xl mx-auto px-6 md:px-10 py-20 md:py-28">
-      <FadeIn><SectionHeading tag="[ CONTACT ]" title="Get in touch" subtitle="Questions, sponsorships, or 3D printing inquiries — we'd love to hear from you." /></FadeIn>
+      <SectionHeading tag="[ CONTACT ]" title="Get in touch" subtitle="Questions, sponsorships, or 3D printing inquiries — we'd love to hear from you." />
 
-      <FadeIn delay={0.1}><div className="grid md:grid-cols-2 gap-px bg-border border border-border">
+      <div className="grid md:grid-cols-2 gap-px bg-border border border-border">
         <div className="bg-background p-8 md:p-12">
           <p className="mono-tag mb-6">[DIRECT]</p>
           <div className="space-y-6">
@@ -61,7 +60,7 @@ export default function Contact() {
             OPEN IN MAPS <ArrowUpRight size={14} />
           </a>
         </div>
-      </div></FadeIn>
+      </div>
     </div>
   );
 }
