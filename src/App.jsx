@@ -12,6 +12,19 @@ import Home from '@/pages/Home';
 import Gallery from '@/pages/Gallery';
 import Stats from '@/pages/Stats';
 import Contact from '@/pages/Contact';
+import AdminLayout from '@/components/admin/AdminLayout';
+import AdminHome from '@/pages/admin/AdminHome';
+import AdminSettings from '@/pages/admin/AdminSettings';
+import AdminTeam from '@/pages/admin/AdminTeam';
+import AdminStats from '@/pages/admin/AdminStats';
+import AdminSponsors from '@/pages/admin/AdminSponsors';
+import AdminGallery from '@/pages/admin/AdminGallery';
+import AdminTimeline from '@/pages/admin/AdminTimeline';
+import AdminSubmissions from '@/pages/admin/AdminSubmissions';
+import Login from '@/pages/Login';
+import Register from '@/pages/Register';
+import ForgotPassword from '@/pages/ForgotPassword';
+import ResetPassword from '@/pages/ResetPassword';
 
 const AuthenticatedApp = () => {
   const { isLoadingAuth, isLoadingPublicSettings, authError, navigateToLogin } = useAuth();
@@ -40,6 +53,20 @@ const AuthenticatedApp = () => {
         <Route path="/gallery" element={<Gallery />} />
         <Route path="/stats" element={<Stats />} />
         <Route path="/contact" element={<Contact />} />
+      </Route>
+      <Route path="/login" element={<Login />} />
+      <Route path="/register" element={<Register />} />
+      <Route path="/forgot-password" element={<ForgotPassword />} />
+      <Route path="/reset-password" element={<ResetPassword />} />
+      <Route element={<AdminLayout />}>
+        <Route path="/admin" element={<AdminHome />} />
+        <Route path="/admin/settings" element={<AdminSettings />} />
+        <Route path="/admin/team" element={<AdminTeam />} />
+        <Route path="/admin/stats" element={<AdminStats />} />
+        <Route path="/admin/sponsors" element={<AdminSponsors />} />
+        <Route path="/admin/gallery" element={<AdminGallery />} />
+        <Route path="/admin/timeline" element={<AdminTimeline />} />
+        <Route path="/admin/submissions" element={<AdminSubmissions />} />
       </Route>
       <Route path="*" element={<PageNotFound />} />
     </Routes>
