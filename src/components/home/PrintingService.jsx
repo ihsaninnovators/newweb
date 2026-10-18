@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { base44 } from "@/api/base44Client";
 import SectionHeading from "@/components/SectionHeading";
 import FadeIn from "@/components/FadeIn";
-import { ArrowRight, ArrowUpRight } from "lucide-react";
+import { ArrowRight } from "lucide-react";
 
 const SPECS = [
   { label: "MACHINES", value: "Bambu Lab H2D · H2S · X1-C" },
@@ -51,11 +51,7 @@ export default function PrintingService() {
                     <span className="font-mono text-sm text-foreground">{s.value}</span>
                   </li>
                 ))}
-                <li className="px-6 py-5">
-                  <a href="https://ii3dprint.com/" target="_blank" rel="noopener noreferrer" className="mono-tag text-primary hover:opacity-80 inline-flex items-center gap-2">
-                    VIEW_PRINT_GALLERY <ArrowUpRight size={13} />
-                  </a>
-                </li>
+
               </ul>
             </div>
           </FadeIn>
