@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { base44 } from "@/api/base44Client";
 import SectionHeading from "@/components/SectionHeading";
 import FadeIn from "@/components/FadeIn";
 import { ArrowRight, ArrowUpRight } from "lucide-react";
@@ -12,16 +13,20 @@ const SPECS = [
 
 export default function PrintingService() {
   const [form, setForm] = useState({ name: "", email: "", details: "" });
+  const [status, setStatus] = useState("idle"); // idle | sending | sent | error
 
   const handleChange = (e) => setForm((f) => ({ ...f, [e.target.name]: e.target.value }));
 
-  const handleRequest = (e) => {
+  const handleRequest = async (e) => {
     e.preventDefault();
-    const subject = encodeURIComponent(`3D Print Request — ${form.name || "New Request"}`);
-    const body = encodeURIComponent(
-      `Name: ${form.name}\nEmail: ${form.email}\n\nPrint details:\n${form.details}`
-    );
-    window.location.href = `mailto:ihsaninnovators@gmail.com?subject=${subject}&body=${body}`;
+    setStatus("sending");
+    try {
+      await base44.functions.invoke("submitPrintRequest", form);
+      setStatus("sent");
+      setForm({ name: "", email: "", details: "" });
+    } catch (err) {
+      setStatus("error");
+    }
   };
 
   return (
@@ -35,7 +40,7 @@ export default function PrintingService() {
             </p>
             <div className="flex flex-wrap gap-4 mb-12">
               <a href="https://ii3dprint.com/" target="_blank" rel="noopener noreferrer" className="btn-primary">
-                VISIT II3DPRINT.COM <ArrowRight size={15} className="ml-2" />
+                VISIT TO GET A QUOTE <ArrowRight size={15} className="ml-2" />
               </a>
             </div>
             <div className="border border-border bg-secondary/30 card-hover">
@@ -72,10 +77,12 @@ export default function PrintingService() {
                   <textarea name="details" value={form.details} onChange={handleChange} required rows={4} className="field-dark resize-none" placeholder="What do you need printed? Include size, material, color, and quantity." />
                 </div>
               </div>
-              <button type="submit" className="btn-ghost w-full mt-8">
-                REQUEST A PRINT <ArrowRight size={15} className="ml-2" />
+              <button type="submit" disabled={status === "sending"} className="btn-ghost w-full mt-8 disabled:opacity-50">
+                {status === "sending" ? "SENDING…" : "REQUEST A PRINT"} <ArrowRight size={15} className="ml-2" />
               </button>
-              <p className="mono-tag mt-4 text-center">Opens your email app to ihsaninnovators@gmail.com</p>
+              {status === "sent" && <p className="mono-tag mt-4 text-center text-primary">Request sent — we'll be in touch soon.</p>}
+              {status === "error" && <p className="mono-tag mt-4 text-center text-destructive">Something went wrong. Please try again.</p>}
+              {status === "idle" && <p className="mono-tag mt-4 text-center">Sends your request to ihsaninnovators@gmail.com</p>}
             </form>
           </FadeIn>
         </div>

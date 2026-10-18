@@ -1,0 +1,58 @@
+<mjml>
+  <mj-head>
+    <mj-title>New 3D print request from {{name}}</mj-title>
+    <mj-preview>A new 3D print request was submitted through your website.</mj-preview>
+    <mj-attributes>
+      <mj-all font-family="Inter, Helvetica, Arial, sans-serif" />
+      <mj-section background-color="#ffffff" padding="0 36px" />
+      <mj-text color="#000000" font-size="15px" line-height="1.6" padding="0" />
+      <mj-button background-color="#337aff" color="#000000" border-radius="4px" font-weight="700" inner-padding="14px 28px" align="left" />
+    </mj-attributes>
+  </mj-head>
+  <mj-body background-color="#f6f7f9">
+    <mj-section padding="0" background-color="#337aff">
+      <mj-column>
+        <mj-text color="#000000" font-size="20px" font-weight="700" padding="24px 36px">
+          New 3D Print Request
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <mj-section padding="36px 36px 12px">
+      <mj-column>
+        <mj-text font-size="24px" font-weight="700" padding="0 0 8px">
+          You received a new print request
+        </mj-text>
+        <mj-text color="#6b7280" padding="0">
+          Someone just submitted the 3D printing request form on {{app_name}}.
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <mj-section padding="12px 36px">
+      <mj-column>
+        <mj-table cellpadding="0" cellspacing="0" border="1px solid #e5e7eb" width="100%">
+          <tr><td style="padding:12px 16px;font-weight:700;background:#f6f7f9;border:1px solid #e5e7eb;width:120px;">Name</td><td style="padding:12px 16px;border:1px solid #e5e7eb;">{{name}}</td></tr>
+          <tr><td style="padding:12px 16px;font-weight:700;background:#f6f7f9;border:1px solid #e5e7eb;">Email</td><td style="padding:12px 16px;border:1px solid #e5e7eb;">{{email}}</td></tr>
+        </mj-table>
+      </mj-column>
+    </mj-section>
+
+    <mj-section padding="12px 36px 24px">
+      <mj-column>
+        <mj-text font-weight="700" padding="0 0 8px">Print details</mj-text>
+        <mj-text color="#000000" padding="12px 16px" css-class="message-box" container-background-color="#f6f7f9" border-radius="4px">
+          {{details}}
+        </mj-text>
+      </mj-column>
+    </mj-section>
+
+    <mj-section padding="0 36px 36px">
+      <mj-column>
+        <mj-text color="#6b7280" font-size="12px" padding="0">
+          This request was sent automatically from the {{app_name}} 3D printing request form.
+        </mj-text>
+      </mj-column>
+    </mj-section>
+  </mj-body>
+</mjml>
