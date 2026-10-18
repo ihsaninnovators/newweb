@@ -47,7 +47,7 @@ export default function Hero() {
       <div className="absolute bottom-0 left-0 right-0 border-t border-border">
         <div className="max-w-7xl mx-auto px-6 md:px-10 py-4 flex justify-between mono-tag">
           <span className="hidden md:block">SCROLL TO EXPLORE</span>
-          <span className="hidden md:block">EST. 2024</span>
+          <span className="hidden md:block">EST. 2026</span>
         </div>
       </div>
     </section>
