@@ -1,6 +1,6 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Instagram, Github, Mail } from "lucide-react";
+import { Instagram, Github, Mail, Lock } from "lucide-react";
 
 const LOGO_URL = "https://media.base44.com/images/public/6a99a526b6f8be408ecdca4a/dba9b218a_image.png";
 
@@ -42,6 +42,12 @@ export default function Footer() {
         <div className="mt-12 pt-8 border-t border-border flex flex-col md:flex-row justify-between gap-4">
           <p className="mono-tag">© {new Date().getFullYear()} IHSAN INNOVATORS — ALL RIGHTS RESERVED</p>
           <p className="mono-tag">SAN JOSE, CA · EST. 2026</p>
+        </div>
+
+        <div className="mt-8 flex justify-center">
+          <Link to="/admin" className="inline-flex items-center gap-2 px-4 py-2 border border-border text-muted-foreground hover:border-primary hover:text-primary transition-colors mono-tag">
+            <Lock size={12} /> ADMIN
+          </Link>
         </div>
       </div>
     </footer>
