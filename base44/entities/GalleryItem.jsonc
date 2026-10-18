@@ -18,10 +18,7 @@
     "season": {
       "type": "string",
       "title": "Season",
-      "enum": [
-        "2025-26",
-        "2026-27"
-      ],
+      "description": "e.g. 2025-26, 2026-27, 2027-28",
       "default": "2025-26"
     },
     "component_id": {
