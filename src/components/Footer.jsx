@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 import { Instagram, Github, Mail, Lock } from "lucide-react";
 
-const LOGO_URL = "https://media.base44.com/images/public/6a99a526b6f8be408ecdca4a/f47ded68d_Screenshot_2026-09-20_at_33428_PM-Photoroom.png";
+const LOGO_URL = "https://media.base44.com/images/public/6a99a526b6f8be408ecdca4a/48b9a5fd1_Screenshot_2026-09-20_at_33428_PM-Photoroom-recolored.png";
 
 export default function Footer() {
   return (
