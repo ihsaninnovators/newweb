@@ -15,7 +15,7 @@ export default function TeamPreview() {
 
   const subTeamColor = {
     Mechanical: "text-orange-400",
-    Programming: "text-primary",
+    Programming: "text-blue-400",
     "Business/Outreach": "text-green-400",
     CAD: "text-purple-400",
     Mentor: "text-amber-400",
