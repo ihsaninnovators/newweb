@@ -2,7 +2,7 @@ import { useState } from "react";
 import ImageUpload from "./ImageUpload";
 import { X } from "lucide-react";
 
-export default function EntityForm({ fields, record, onSave, onCancel, saving }) {
+export default function EntityForm({ fields, record, onSave, onCancel, saving, noun = "record" }) {
   const [data, setData] = useState(record);
   const set = (name, val) => setData((d) => ({ ...d, [name]: val }));
 
@@ -39,7 +39,7 @@ export default function EntityForm({ fields, record, onSave, onCancel, saving })
           </select>
         );
       case "image":
-        return <ImageUpload value={value} onChange={(v) => set(f.name, v)} />;
+        return <ImageUpload id={f.name} value={value} onChange={(v) => set(f.name, v)} />;
       default:
         return (
           <input
@@ -61,25 +61,40 @@ export default function EntityForm({ fields, record, onSave, onCancel, saving })
           e.preventDefault();
           onSave(data);
         }}
-        className="bg-card border border-border w-full max-w-lg max-h-[85vh] overflow-y-auto p-6"
+        className="bg-card border border-border w-full max-w-lg max-h-[88vh] flex flex-col"
       >
-        <div className="flex justify-between items-center mb-6">
-          <h3 className="text-xl font-bold">{record.id ? "Edit" : "New"} Record</h3>
-          <button type="button" onClick={onCancel} aria-label="Close">
-            <X size={20} />
+        <div className="flex items-start justify-between gap-4 px-6 py-5 border-b border-border">
+          <div>
+            <h3 className="text-lg font-semibold tracking-tight">
+              {record.id ? `Edit ${noun.toLowerCase()}` : `New ${noun.toLowerCase()}`}
+            </h3>
+            <p className="text-xs text-muted-foreground mt-1">
+              {record.id ? "Update the details below." : "Fill in the details below."}
+            </p>
+          </div>
+          <button
+            type="button"
+            onClick={onCancel}
+            aria-label="Close"
+            className="p-1.5 -mr-1.5 text-muted-foreground hover:text-foreground transition-colors"
+          >
+            <X size={18} />
           </button>
         </div>
-        <div className="space-y-5">
+
+        <div className="px-6 py-6 space-y-6 overflow-y-auto">
           {fields.map((f) => (
             <div key={f.name}>
-              <label htmlFor={f.name} className="mono-tag block mb-2">
+              <label htmlFor={f.name} className="block text-sm font-medium mb-2.5">
                 {f.label}{f.required ? " *" : ""}
               </label>
               {renderField(f)}
+              {f.hint && <p className="text-xs text-muted-foreground mt-2">{f.hint}</p>}
             </div>
           ))}
         </div>
-        <div className="flex gap-3 mt-8">
+
+        <div className="flex gap-3 px-6 py-5 border-t border-border">
           <button type="submit" disabled={saving} className="btn-primary flex-1 disabled:opacity-50">
             {saving ? "Saving…" : "Save"}
           </button>

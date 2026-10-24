@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { base44 } from "@/api/base44Client";
 import EntityForm from "./EntityForm";
-import { Pencil, Plus } from "lucide-react";
+import { Pencil, Plus, Loader2 } from "lucide-react";
 
 const FIELDS = [
   { name: "team_number", label: "Team Number", type: "text" },
@@ -62,12 +62,15 @@ export default function SettingsEditor() {
         )}
       </div>
       {loading ? (
-        <p className="mono-tag">Loading…</p>
+        <div className="border border-border bg-card/30 px-6 py-5 flex items-center gap-3">
+          <Loader2 size={16} className="animate-spin text-muted-foreground" />
+          <span className="text-sm text-muted-foreground">Loading…</span>
+        </div>
       ) : record ? (
-        <div className="border border-border p-6 space-y-3">
+        <div className="border border-border bg-card/30 p-6 space-y-3">
           {FIELDS.map((f) => (
-            <div key={f.name} className="flex gap-4 border-b border-border pb-3 last:border-0">
-              <span className="mono-tag w-40 shrink-0">{f.label}</span>
+            <div key={f.name} className="flex gap-6 border-b border-border pb-3 last:border-0 last:pb-0">
+              <span className="text-sm text-muted-foreground w-40 shrink-0">{f.label}</span>
               <span className="text-sm break-all">{record[f.name] || "—"}</span>
             </div>
           ))}

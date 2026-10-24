@@ -11,5 +11,5 @@ const FIELDS = [
 ];
 
 export default function AdminGallery() {
-  return <EntityEditor entity="GalleryItem" title="Gallery" fields={FIELDS} sortBy="display_order" />;
+  return <EntityEditor entity="GalleryItem" title="Gallery" noun="image" fields={FIELDS} sortBy="display_order" />;
 }
