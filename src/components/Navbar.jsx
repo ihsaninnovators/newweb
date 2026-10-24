@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
 
-const LOGO_URL = "https://media.base44.com/images/public/6a99a526b6f8be408ecdca4a/dba9b218a_image.png";
+const LOGO_URL = "https://media.base44.com/images/public/6a99a526b6f8be408ecdca4a/30d3c3c6f_generated_image.png";
 
 const LINKS = [
   { label: "Home", path: "/" },
