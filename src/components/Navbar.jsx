@@ -29,9 +29,9 @@ export default function Navbar() {
 
   return (
     <header className={`sticky top-0 z-50 transition-colors duration-300 ${scrolled ? "bg-background/90 backdrop-blur-md border-b border-border" : "bg-transparent border-b border-transparent"}`}>
-      <nav className="max-w-7xl mx-auto px-6 md:px-10 h-16 flex items-center justify-between">
+      <nav className="max-w-7xl mx-auto px-6 md:px-10 h-20 flex items-center justify-between">
         <Link to="/" className="flex items-center gap-3 group">
-          <img src={LOGO_URL} alt="Ihsan Innovators" className="h-10 w-auto" />
+          <img src={LOGO_URL} alt="Ihsan Innovators" className="h-14 w-auto" />
           <span className="mono-tag group-hover:text-primary transition-colors">FTC #30695</span>
         </Link>
 
