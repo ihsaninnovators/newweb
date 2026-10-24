@@ -20,11 +20,11 @@ export default function Sponsors() {
         <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border">
           {sponsors.map((s) => {
             const inner = (
-              <div className="bg-background p-8 md:p-12 flex items-center justify-center h-full hover:bg-secondary transition-colors group">
+              <div className="bg-foreground p-8 md:p-12 flex items-center justify-center h-full hover:bg-foreground/90 transition-colors group">
                 {s.logo_url ? (
-                  <img src={s.logo_url} alt={s.name} className="max-h-16 max-w-[140px] object-contain opacity-60 group-hover:opacity-100 transition-opacity" />
+                  <img src={s.logo_url} alt={s.name} className="w-full max-w-[150px] h-16 object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
                 ) : (
-                  <span className="font-bold text-lg">{s.name}</span>
+                  <span className="font-bold text-lg text-background">{s.name}</span>
                 )}
               </div>
             );
