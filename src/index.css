@@ -10,7 +10,7 @@
     --card-foreground: 0 0% 95%;
     --popover: 0 0% 4.5%;
     --popover-foreground: 0 0% 95%;
-    --primary: 219 100% 60%;
+    --primary: 189 42% 38%;
     --primary-foreground: 0 0% 100%;
     --secondary: 0 0% 10%;
     --secondary-foreground: 0 0% 95%;
@@ -22,8 +22,8 @@
     --destructive-foreground: 0 0% 98%;
     --border: 0 0% 12%;
     --input: 0 0% 12%;
-    --ring: 219 100% 60%;
-    --chart-1: 219 100% 60%;
+    --ring: 189 42% 38%;
+    --chart-1: 189 42% 38%;
     --chart-2: 173 58% 39%;
     --chart-3: 197 37% 24%;
     --chart-4: 43 74% 66%;
@@ -52,11 +52,11 @@
     background-position: -1px -1px;
   }
   ::selection {
-    background-color: hsl(219 100% 60%);
+    background-color: hsl(189 42% 38%);
     color: #fff;
   }
   :focus-visible {
-    outline: 2px solid hsl(219 100% 60%);
+    outline: 2px solid hsl(189 42% 38%);
     outline-offset: 2px;
   }
 }
