@@ -14,17 +14,17 @@ export default function Sponsors() {
   if (!sponsors.length) return null;
 
   return (
-    <section className="border-t border-border py-24 md:py-32 bg-secondary/30">
+    <section className="border-t border-border py-24 md:py-32 bg-background">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <SectionHeading index="06" tag="SPONSORS" title="Our partners" align="center" />
         <div className="grid grid-cols-2 md:grid-cols-4 gap-px bg-border border border-border">
           {sponsors.map((s) => {
             const inner = (
-              <div className="bg-foreground p-8 md:p-12 flex items-center justify-center h-full hover:bg-foreground/90 transition-colors group">
+              <div className="bg-background p-8 md:p-12 flex items-center justify-center h-full hover:bg-secondary transition-colors group">
                 {s.logo_url ? (
                   <img src={s.logo_url} alt={s.name} className="w-full max-w-[150px] h-16 object-contain opacity-80 group-hover:opacity-100 transition-opacity" />
                 ) : (
-                  <span className="font-bold text-lg text-background">{s.name}</span>
+                  <span className="font-bold text-lg">{s.name}</span>
                 )}
               </div>
             );
